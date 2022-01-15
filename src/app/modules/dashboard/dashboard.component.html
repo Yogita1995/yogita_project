@@ -1,0 +1,49 @@
+
+<div class="row">
+  <div class="col-4">
+    <img
+    src={{alldata?.restaurant_image}}>
+  </div>
+  <div class="col-6">
+    <h3>{{alldata?.Name}}</h3>
+    <p style="font-size: 12px;">{{alldata?.restaurant_address}}</p>
+    <span class="badge bg-primary">{{alldata?.discount_type}}</span>
+
+  </div>
+ 
+</div>
+
+<div class="row">
+  <div class="main-box">
+    <div class="container">
+      <div class="row">
+        <div class="col col-xs-12 text-center" *ngFor="let key of categories">
+          <div class="card box" (click)="onItems(key.Category_name)">
+            <i class="fa fa-behance fa-3x" aria-hidden="true"></i>
+            <div class="box-title">
+              <h5>{{key.Category_name}}</h5>
+            </div>            
+            <div class="box-btn">
+              <a class="box-a">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="show">  
+  <div class="col-3 " *ngFor="let el of data[0]?.Items">   
+    <div class="card mb-2">
+      <img style="height: 200px;" src={{el?.item_image}} class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{el?.Name}}</h5>
+        <p class="card-text">{{el?.Description}}</p>
+        <a href="#" class="btn btn-primary">{{el?.Price}}</a>
+      </div>
+    </div>
+  </div>
+ 
+</div>
+
+
