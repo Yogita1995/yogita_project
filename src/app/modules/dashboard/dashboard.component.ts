@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
   data=[];
   alldata:any;
   show:boolean=false;
+  loader:boolean=true;
   
   constructor(private service :MyserviceService) { }
 
@@ -22,6 +23,7 @@ export class DashboardComponent implements OnInit {
   getData(){
     this.categories=[];
     this.service.listing().subscribe((x:any)=>{
+      this.loader=false;
       this.alldata=x;
       this.categories=x.Categories;
       console.log(x)
